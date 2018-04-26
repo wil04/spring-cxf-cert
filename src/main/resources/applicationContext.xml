@@ -12,15 +12,12 @@
 	<bean id="messageProducer" class="com.bahadirakin.producer.MessageProducerImpl"
 		scope="singleton" />
 
-	<bean id="helloWorldService" class="com.bahadirakin.service.HelloWorldServiceImpl">
-		<constructor-arg ref="messageProducer" />
+	<bean id="wsCiclosService" class="gob.sin.fac.ciclos.ws.WsCiclosImpl">
+		
 	</bean>
 
-	<jaxws:endpoint id="helloWorldServiceEndpoint"
-		implementor="#helloWorldService" address="/HelloWorldService">
-		<jaxws:properties>
-			<entry key="schema-validation-enabled" value="true" />
-		</jaxws:properties>
+	<jaxws:endpoint id="wsCiclosServiceEndpoint"
+		implementor="#wsCiclosService" address="/WsCiclosService">
 		<jaxws:inInterceptors>
 			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor" />
 		</jaxws:inInterceptors>
